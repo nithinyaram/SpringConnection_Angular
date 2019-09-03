@@ -1,0 +1,15 @@
+<form [formGroup]='profileForm' (ngSubmit)='onSubmit()'>
+    Name:
+    <input type="text" formControlName='name'><br>
+    Email :
+    <input type="text" formControlName='email' required><br>
+    College :
+    <input type='text' formControlName='college'><br>
+    Phone Number :
+    <input type='text' formControlName='pno'><br>
+    
+    <button class='btn btn-success' type="submit" [disabled]='!profileForm.valid'>Submit Record</button>
+</form>
+
+{{profileForm.value | json}}<br>
+Res :{{res}}

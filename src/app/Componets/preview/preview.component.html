@@ -1,0 +1,55 @@
+<p>preview works!</p>
+<h4>Search Based On Category</h4>
+<form [formGroup]='PreviewForm' (ngSubmit)='onSubmit()'>
+   Property Name:
+    <input type="text" formControlName='name'>
+			
+    <select class="custom-select" (change)="changeProperty($event)" formControlName="type">
+      <option value="">--Select--</option>
+      <option *ngFor="let t of Type" [ngValue]="t">{{t}}</option>
+    </select>
+
+
+    <button class='btn btn-success' type="submit">Search</button>
+</form>
+<br>
+{{PreviewForm.value | json}}
+<br>
+{{response}}
+<br><br><br>
+
+
+
+<h4>Search Based On 2 fields</h4>
+<form [formGroup]='SearchForm2' (ngSubmit)='onSearch()'>
+ Name :  <input type="text" formControlName='name'><br>
+	college  :	<input type="text" formControlName='college'><br>		
+   
+    <button class='btn btn-success' type="submit">Search</button>
+</form>
+<br>
+{{SearchForm2.value | json}}
+<br>
+{{SearchValue }}
+<br><br><br>
+
+
+<h4>Sort Based On Category</h4>
+<form [formGroup]='SearchForm' (ngSubmit)='onSort()'>
+ 
+  Sort:    
+  <select class="custom-select" (change)="changeSelect($event)" formControlName="type">
+    <option value="">--Select--</option>
+    <option *ngFor="let t of Type" [ngValue]="t">{{t}}</option>
+  </select>
+
+
+  <button class='btn btn-success' type="submit">Sort</button>
+</form>
+<br>
+{{SearchForm.value | json}}
+{{sort}}
+<!-- 
+<div *ngFor="let item of sort">
+{{item}}<br>
+</div> -->
